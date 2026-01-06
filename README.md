@@ -1,34 +1,259 @@
-# Typst Files
-This folder contains all the necessary files to compile a typst document.
+# Exampst!
 
-## Compiling
+## A set of typst tools for creating exams and programming assignments 
 
-To compile typst projects, you'll likely need our local project tools packages. This directory is a valid typst package, to install this package locally:
+# `init`
 
-You can copy these files to {data-dir}/typst/packages/{namespace}/{name}/{version} to make them available locally on your system. Where, {data-dir} is
+Global Document Initialization.
 
-- `$XDG_DATA_HOME` or `~/.local/share on Linux`
-- `~/Library/Application Support` on macOS
-- `%APPDATA%` on Windows
+## Parameters:
 
-Or if you are on linux, just run the `create-local-package.sh` script.
+- `body`:
 
-You’ll also need to configure fonts before compiling. There are two main ways to do this:
-
-### 1. Using the env variable
-Set the `TYPST_FONT_PATHS` variable to point to your ^Fonts^ directory:
-```bash
-export TYPST_FONT_PATHS=$(realpath Fonts)
+## Basic usage:
 ```
-You can set this before you compile or add it to your `.bashrc` to make it permanent.
-
-### 2. Passing a flag
-Alternatively, you can specify the font path directly when compiling:
-```bash
-typst compile [--font-path path/to/Fonts] Project.typ output.pdf
 ```
 
-Or for live development with automatic rebuilds:
-```bash
-typst watch [--font-path path/to/Fonts] Project.typ output.pdf
+# `wt`
+
+## Parameters:
+
+- `body`
+- `dsp` (default: -10pt)
+
+
+
+## Basic usage:
+```
+```
+
+# `cmd_color`
+render terminal / command output with syntax coloring
+highlights user input
+
+highlights errors
+
+formats command-style output
+
+## Parameters:
+
+- `input` (string or array)
+- `dsp` (default: 0pt)
+
+
+
+## Basic usage:
+```
+```
+
+# `uml`
+
+UML-style class diagram table
+
+renders structured UML block
+
+## Parameters:
+
+- `title`:
+- `fields`:
+- `methods`:
+
+
+
+## Basic usage:
+```
+#uml(
+
+)
+```
+
+# `lp`
+
+lab problem header
+renders standardized lab title
+
+
+- `class`:
+- `lpNum`:
+- `title`:
+
+## Basic usage:
+```
+```
+
+# `purpose`
+
+## Parameters
+- `body`
+
+## Basic Usage:
+```
+```
+
+# `partA`
+
+## Parameters:
+- `body`
+
+## Basic Usage:
+```
+```
+
+# `partB`
+
+## Parameters:
+- `body`
+
+## Basic Usage:
+```
+```
+
+# `extra`
+
+## Parameters:
+- `title` (default: "Extra")
+- `body`
+
+## Basic Usage:
+```
+```
+
+# `example`
+
+## Parameters:
+- `io`
+- `body`
+
+## Basic Usage:
+```
+```
+
+# `labRubric`
+
+## Parameters:
+- `docOverride`: (default: "Documentation")
+- `partAOverride`: (default: "Part A correct")
+- `partBOverride`: (default: "Part B correct")
+
+## Basic Usage:
+```
+```
+
+
+# `rubric`
+
+## Parameters:
+- `baseRubric`
+- `styleRubric`
+- `bonusRubric`: (default: none)
+- `wtRubric`: (default: none)
+- `notes`: (sink)
+
+## Basic Usage:
+```
+```
+
+# `header`
+
+## Parameters:
+- N/A
+
+## Basic Usage:
+```
+```
+
+# `setup`
+
+## Parameters:
+- `title`:
+
+## Basic Usage:
+```
+```
+
+# `spacer`
+
+## Parameters:
+- N/A
+
+## Basic Usage:
+```
+```
+
+# `question`
+
+## Parameters:
+- `body`:
+- `num_points`:
+
+## Basic Usage:
+```
+```
+
+
+# `multiple_choice`
+
+## Parameters:
+- `body`:
+- `num_points`:
+- `cols`: (default: 1)
+- `answers`: (sink)
+
+## Basic Usage:
+```
+```
+
+# `matching`
+
+## Parameters:
+- `q_body`:
+- `points`:
+- `left_opts`:
+- `right_opts`:
+
+## Basic Usage:
+```
+```
+
+# `multi_true_false`
+
+## Parameters:
+- `q_body`:
+- `points`:
+- `statements`: (sink)
+
+## Basic Usage:
+```
+```
+
+# `free_response`
+
+## Parameters
+- `q_body`:
+- `points`:
+- `num_lines`:
+
+Basic Usage:
+```
+```
+
+
+# `short_answer`
+
+## Parameters
+- `q_body`:
+- `points`:
+- `num_lines`:
+
+Basic Usage:
+```
+```
+
+# `code_block`
+
+## Parameters
+- `raw_code`:
+
+## Basic Usage:
+```
 ```
